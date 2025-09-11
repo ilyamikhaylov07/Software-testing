@@ -1,5 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 class BasePage:
     def __init__(self, driver):
@@ -10,7 +10,7 @@ class BasePage:
         self.driver.get(url)
 
     def find(self, by, locator):
-        return self.wait.until(EC.presence_of_element_located((by, locator)))
+        return self.wait.until(ec.presence_of_element_located((by, locator)))
 
     def click(self, by, locator):
         self.find(by, locator).click()
