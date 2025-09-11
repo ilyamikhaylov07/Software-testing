@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    body { font-family: sans-serif; max-width: 400px; margin: 40px auto; }
+    input, textarea, button { display: block; margin: 10px 0; padding: 8px; width: 100%; }
+    .error { color: red; font-size: 14px; }
+    .success { color: green; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>Contact Form</h2>
+  <form id="contactForm">
+    <input id="name" type="text" placeholder="Ваше имя" required>
+    <span id="nameError" class="error"></span>
+
+    <input id="email" type="email" placeholder="Ваш email" required>
+    <span id="emailError" class="error"></span>
+
+    <textarea id="message" placeholder="Сообщение" required></textarea>
+    <span id="messageError" class="error"></span>
+
+    <button type="submit">Отправить</button>
+  </form>
+
+  <p id="formResult"></p>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let valid = true;
+
+      // Чистим ошибки
+      document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name) {
+        document.getElementById("nameError").textContent = "Имя обязательно";
+        valid = false;
+      }
+      if (!email) {
+        document.getElementById("emailError").textContent = "Email обязателен";
+        valid = false;
+      }
+      if (!message) {
+        document.getElementById("messageError").textContent = "Сообщение обязательно";
+        valid = false;
+      }
+
+      if (valid) {
+        document.getElementById("formResult").textContent = "Форма успешно отправлена!";
+        document.getElementById("formResult").className = "success";
+      } else {
+        document.getElementById("formResult").textContent = "Исправьте ошибки!";
+        document.getElementById("formResult").className = "error";
+      }
+    });
+  </script>
+</body>
+</html>
