@@ -14,7 +14,7 @@ def driver():
 
 def test_valid_contact_form(driver):
     page = ContactPage(driver)
-    page.open("file:///C:/Users/user/Documents/EducationWork/Software-testing/4laba/contact.html")  # путь к файлу
+    page.open("file:///D:/тестированиеПО/Software-testing/4laba/contact.html")  # путь к файлу
 
     page.fill_form("Илья", "test@example.com", "Привет, мир")
     page.submit()
@@ -23,7 +23,7 @@ def test_valid_contact_form(driver):
 
 def test_invalid_contact_form(driver):
     page = ContactPage(driver)
-    page.open("file:///C:/Users/user/Documents/EducationWork/Software-testing/4laba/contact.html")
+    page.open("file:///D:/тестированиеПО/Software-testing/4laba/contact.html")
 
     # оставляем имя пустым
     page.fill_form("", "test@example.com", "Привет, мир")
